@@ -1,4 +1,4 @@
-module Stack ( Stack(..), push, pop ) where
+module Stack ( Stack(..), push, pop, peek ) where
 
 data Stack a = Top a (Stack a) | Nil deriving(Show)
 
@@ -30,3 +30,7 @@ push = Top
 pop :: Stack a -> Stack a
 pop Nil = Nil
 pop (Top x xs) = xs
+
+peek :: Stack a -> Maybe a
+peek Nil = Nothing
+peek (Top x _) = x
